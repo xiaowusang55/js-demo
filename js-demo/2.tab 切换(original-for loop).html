@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .Box {
+            width: 240px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        .Box div {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #000;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* div background-color  START*/
+        /* :nth-child() 无效，因为 .Box 里有各种类型的标签。需要用 :nth-of-type() */
+        .Box .con:nth-of-type(1) {
+            background-color: rgb(146, 47, 47);
+        }
+        .Box .con:nth-of-type(2) {
+            background-color: rgb(74, 167, 20);
+        }
+        .Box .con:nth-of-type(3) {
+            background-color: rgb(52, 180, 125);
+        }
+        .Box .con:nth-of-type(4) {
+            background-color: rgb(30, 138, 184);
+        }
+
+        /* div background-color  END*/
+        .current {
+            background-color: pink;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="Box" id="box">
+        <button class="current">按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+        <button>按钮4</button>
+        <div class="con" style="display:block">内容1</div>
+        <div class="con">内容2</div>
+        <div class="con">内容3</div>
+        <div class="con">内容4</div>
+    </div>
+
+    <script>
+        let btns = document.querySelectorAll("button");
+        let divs = document.querySelectorAll(".con");
+
+        for (let i = 0; i < btns.length; i++) {
+            let btn = btns[i];
+
+            btn.onclick = e => {
+                let eClick = e.target;
+
+                for (let i = 0; i < btns.length; i++) {
+                    btns[i].classList.remove("current");
+                }
+                e.target.className = "current";
+
+                for (let i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+                divs[i].style.display = "block";
+            }
+
+
+        }
+    </script>
+
+
+</body>
+
+</html>
