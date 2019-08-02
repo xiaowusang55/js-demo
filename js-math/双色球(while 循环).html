@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var i = 1;
+        var count = 0;
+        while (i <= 7) {
+            var ball = parseInt(Math.random() * 10);
+            console.log(ball);
+            var num = prompt("Enter number " + i );
+            num == ball ? count++ : "";
+
+            i++;
+
+        }
+        count != 0 ? console.log(count + "次 "+ "bonus:" + Math.pow(10, count)) : "GG";
+
+
+
+    </script>
+</body>
+</html>

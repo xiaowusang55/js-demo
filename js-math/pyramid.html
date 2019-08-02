@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h5 class="text-primary">Input a number and you will see the pyramid</h5>
+        <input type="number" id="input" class="bg-danger" required>
+        <input type="button" value="Click me" class="btn-primary">
+        <pre class="output"></pre>
+    </div>
+
+
+
+    <script type="text/javascript">
+        var usrInput = document.querySelector("#input");
+        var btn = document.querySelector("[type='button']");
+        var usrOutput = document.querySelector(".output");
+
+
+        btn.onclick = function () {
+
+            for (var row = 1; row <= usrInput.value; row++) {
+                // console.log(row);
+                var strConcate = "";
+                for (var spacing = row; spacing < usrInput.value; spacing++) {
+                    strConcate += " ";
+                }
+                for (var starNum = 1; starNum <= 2 * row - 1; starNum++) {
+                    strConcate += "*";
+                }
+               
+                console.log(strConcate);
+            }
+
+        //     for (var row = 1; row <= usrInput.value; row++) {
+        //         // console.log(row);
+        //         var strConcate = "";
+        //         for (var spacing = row; spacing < usrInput.value; spacing++) {
+        //             strConcate += " ";
+        //         }
+        //         for (var starNum = 1; starNum <= 2 * row - 1; starNum++) {
+        //             strConcate += "*";
+        //         }
+               
+        //         console.log(strConcate);
+        //     }
+        // }
+
+
+
+        // function abc(num) {
+
+        //     for (var row = 1; row <= num; row++) {
+        //         // console.log(row);
+        //         var strConcate = "";
+        //         for (var spacing = row; spacing < num; spacing++) {
+        //             strConcate += " ";
+        //         }
+        //         for (var starNum = 1; starNum <= 2 * row - 1; starNum++) {
+        //             strConcate += "*";
+        //         }
+               
+        //         console.log(strConcate);
+        //     }
+
+            
+
+        // }
+        // abc(5);
+    </script>
+
+
+</body>
+
+</html>

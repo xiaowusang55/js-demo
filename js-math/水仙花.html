@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        for (var i = 100; i <= 999; i++) {
+            var nnn = parseInt(i / 100);
+            var nn = parseInt(i % 100 / 10);
+            var n = i % 100 % 10;
+            Math.pow(nnn, 3) + Math.pow(nn, 3)  + Math.pow(n, 3) == i ? console.log(i) : "";    
+
+        } 
+
+    </script>
+
+</body>
+</html>

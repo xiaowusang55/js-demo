@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        
+        function approxmte(num) {
+            var count = 0;
+            for (var i = 1; i <= num; i++) {
+                num % i == 0 ? count++ : "";
+            }
+            return count;
+        }
+        // console.log(approxmte(10));
+        
+        function isprime(num) {
+            var count = 0;
+            approxmte(num) == 2 && num != 1 ? console.log("is prime") : console.log("not prime");
+        }
+        // isprime(7)
+
+        
+        var sum = 0;
+        function primeSum (num) {
+            for(var i = 1; i <= num; i++) {
+                isprime(num) == "is prime" ? sum += i : "";
+
+            }
+            return sum;
+        }
+        console.log(primeSum(3));
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="number" id="">
+    <input type="button" value="Click me"><br><br>
+    <textarea id="output" cols="50" rows="50"></textarea>
+
+
+    
+
+
+    <script>
+        var usrInput = document.querySelector("[type='number']");
+        var btn = document.querySelector("[type='button']");
+        var usrOutPut = document.querySelector("#output");
+        
+        
+        btn.onclick = function money () {
+
+        var hundred = parseInt(usrInput.value/ 100);
+        var fifty = parseInt(usrInput.value % 100 / 50);
+        var twenty = parseInt(usrInput.value % 100 % 50 / 20);
+        var ten = parseInt(usrInput.value % 100 % 50 % 20 / 10);
+        var five = parseInt(usrInput.value % 100 % 50 % 20 % 10 / 5 );
+        var one = parseInt(usrInput.value % 100 % 50 % 20 % 10 % 5 / 1); 
+        var zeroFive = Math.floor(usrInput.value % 100 % 50 % 20 % 10 % 5 % 1 / .5);
+        var zeroOne = Math.round(usrInput.value % 100 % 50 % 20 % 10 % 5 % 1 % .5 / .1);
+
+        
+
+        usrOutPut.innerHTML = (`人民币100元\t${hundred}张\n人民币50元\t${fifty}张\n人民币20元\t${twenty}张\n人民币10元\t${ten}张\n人民币5元\t${five}张\n人民币1元\t${one}张\n人民币5毛\t${zeroFive}张\n人民币1毛\t${zeroOne}张`);
+
+
+
+        }
+         
+    
+    
+    </script>
+
+</body>
+</html>
