@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* css reset START */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* css reset END */
+
+        /* container START */
+        .container {
+            width: 600px;
+            height: 338px;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px;
+        }
+
+        /* container END */
+
+        /* img START */
+        img {
+            width: 600px;
+            float: left;
+            cursor: pointer;
+        }
+
+        /* img END */
+
+        /* warp START */
+        .wrap {
+            width: 4200px;
+            position: absolute;
+        }
+
+        /* warp END */
+
+        /* buttons START */
+        .buttons {
+            position: absolute;
+            z-index: 1px;
+            color: #ffffff;
+            left: 50%;
+            bottom: 14px;
+            transform: translateX(-50%);
+        }
+
+        .buttons span {
+            border: 1px solid #ffffff;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .buttons span:hover {
+            background-color: #a52121;
+        }
+
+        .on {
+            color: #000000;
+            background-color: #ffffff;
+        }
+
+        /* buttons END */
+
+        /* slide-bar START */
+        .slide-bar {
+            z-index: 1px;
+        }
+
+        .slide-bar a {
+            position: absolute;
+            color: #ffffff85;
+            display: inline-block;
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            line-height: 26px;
+            font-weight: 900;
+            font-size: 26px;
+        }
+
+        .slide-bar a:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .slide-bar a:nth-child(2) {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .slide-bar a:hover {
+            color: #ffffff;
+            background-color: #00000051;
+        }
+
+        /* slide-bar END */
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="wrap clearfix" style="left: -600px">
+            <img src="../img/cyber4.png" alt="CyberPunk2077">
+            <img src="../img/cyber0.png" alt="CyberPunk2077">
+            <img src="../img/cyber1.jpg" alt="CyberPunk2077">
+            <img src="../img/cyber2.jpg" alt="CyberPunk2077">
+            <img src="../img/cyber3.jpg" alt="CyberPunk2077">
+            <img src="../img/cyber4.png" alt="CyberPunk2077">
+            <img src="../img/cyber0.png" alt="CyberPunk2077">
+        </div>
+        <div class="buttons">
+            <span class="on">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+        <div class="slide-bar">
+            <a href="javascript:;" class="arrow arrow_left">&lt;</a>
+            <a href="javascript:;" class="arrow arrow_right">&gt;</a>
+        </div>
+    </div>
+
+    <script>
+        let wrap = document.querySelector(".wrap");
+        let next = document.querySelector(".arrow_right");
+        let prev = document.querySelector(".arrow_left");
+        let container = document.querySelector(".container");
+        let span = document.querySelectorAll("span");
+        var index = 0;
+
+        clickPosition();
+        autoPlay();
+        next.onclick = function () {
+            next_pic();
+        }
+
+        prev.onclick = function () {
+            prev_pic();
+        }
+
+        container.onmouseenter = function () {
+            clearInterval(timer);
+        }
+        container.onmouseleave = function () {
+            autoPlay();
+        }
+
+
+
+
+        //next_pic 函数封装
+        function next_pic() {
+            index++;
+            if (index >= span.length) {
+                index = 0;
+            }
+            showCurrentDot();
+            let newLeft = parseInt(wrap.style.left) - 600;
+            if (newLeft > -3600) {
+                wrap.style.left = newLeft + "px";
+            } else {
+                wrap.style.left = "-600px"
+            }
+            // console.log(index, wrap.style.left);
+        }
+        //right_pic 函数封装
+        function prev_pic() {
+            index--;
+            if (index < 0) {
+                index = span.length - 1;
+            }
+            showCurrentDot();
+            let newLeft = parseInt(wrap.style.left) + 600;
+            if (newLeft < 0) {
+                wrap.style.left = newLeft + "px";
+            } else {
+                wrap.style.left = "-3000px"
+            }
+        }
+        //轮播定时器 封装
+        function autoPlay() {
+            timer = setInterval(() => {
+                next_pic()
+            }, 1000);
+        }
+
+        //图片分页标示 封装
+        function showCurrentDot() {
+            for (let i = 0; i < span.length; i++) {
+                const item = span[i];
+                item.className = "";
+            }
+            span[index].className = "on";
+        }
+
+        //点击定位图片
+        function clickPosition() {
+            for(let i = 0; i < span.length; i++) {
+                let item = span[i];
+                item.onclick = function(e) {
+
+                    if(e.target == item) {
+                        switch (i) {
+                            case 0:
+                                wrap.style.left = "-600px"
+                                break;
+                            case 1:
+                                wrap.style.left = "-1200px"
+                                break;
+                            case 2:
+                                wrap.style.left = "-1800px"
+                                break;
+                            case 3:
+                                wrap.style.left = "-2400px"
+                                break;
+                            case 4:
+                                wrap.style.left = "-3000px"
+                                break;
+
+                            default:
+                                break;
+                        }
+                        // console.log(i, wrap.style.left);
+                    }
+                }
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
