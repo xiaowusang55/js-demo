@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .clear:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .clear {
+            zoom: 1;
+        }
+
+        .topNavbar {
+            width: 100%;
+            height: 34px;
+            background: teal;
+            line-height: 34px;
+            overflow: hidden;
+        }
+
+        .warp {
+            background: teal;
+            width: 80%;
+            min-width: 900px;
+            margin: 0 auto;
+        }
+
+        .topNavbar li {
+            float: left;
+        }
+
+        .topNavbar li>a {
+            color: #fff;
+            font-size: 14px;
+            padding: 0 10px;
+        }
+
+        .tNLeft {
+            float: left;
+        }
+
+        .tNRight {
+            float: right;
+        }
+
+        .topNavbar li>a.navberActive {
+            color: yellow;
+        }
+
+        /* 背景颜色 */
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="topNavbar clear">
+        <div class="warp clear">
+            <ul class="clear tNLeft">
+                <li><a href="javascript: ;">首页</a></li>
+                <li><a href="javascript:;">HTML</a></li>
+                <li><a href="javascript:;">CSS</a></li>
+                <li><a href="javascript:;">JAVASCRIPT</a></li>
+                <li><a href="javascript:;">JQUERY</a></li>
+                <li><a href="javascript:;">BOOTSTRAP</a></li>
+                <li><a href="javascript:;">SQL</a></li>
+                <li><a href="javascript:;">MYSQL</a></li>
+            </ul>
+            <div class="tNRight">
+                <select>
+                    <option value="teal">Default</option>
+                    <option value="red">red</option>
+                    <option value="blue">blue</option>
+                    <option value="green">green</option>
+                    <option value="orange">orange</option>
+                </select>
+            </div>
+        </div>
+
+    </nav>
+    <script>
+        let list = document.querySelector('.tNLeft')
+        let alist = document.querySelectorAll('.tNLeft a')
+        let option = document.querySelectorAll("option");
+        let select = document.querySelector("select");
+        let tNavbar = document.querySelector(".topNavbar");
+        let warpCon = document.querySelector(".warp")
+        let currentKey = localStorage.key(0);
+        let getItem = localStorage.getItem(currentKey)
+
+//读取 localStoage 数据。
+        tNavbar.classList.add(getItem);
+        warpCon.classList.add(getItem);
+        navHover();
+        changeBgc();
+
+//navbar 样式
+        function navHover() {
+
+            list.onmousemove = (e) => {
+                let item = e.target;
+                if (item.nodeName == "A") {
+                    alist.forEach((el) => {
+                        el.classList.remove("navberActive")
+                    })
+                    item.classList.add("navberActive")
+                }
+            }
+            list.onmouseleave = (e) => {
+                alist.forEach((el) => {
+                    el.classList.remove("navberActive")
+                })
+            }
+        }
+//切换背景颜色，及保存 cookie
+        function changeBgc() {
+
+            select.onchange = (e) => {
+                let index = select.selectedIndex;
+
+                tNavbar.className = "topNavbar clear";
+                warpCon.className = "warp clear";
+                tNavbar.classList.add(select[index].value);
+                warpCon.classList.add(select[index].value);
+
+
+                for (let i = 0; i < option.length; i++) {
+
+                    localStorage.removeItem(i);
+                }
+                localStorage.setItem(index, select[index].value);
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>
