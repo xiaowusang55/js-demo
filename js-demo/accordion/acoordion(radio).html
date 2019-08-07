@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            display: none;
+        }
+
+        .aco label {
+            background-color: #000000;
+            display: block;
+            color: #ffffff;
+
+        }
+
+        .aco div {
+            background-color: rgb(175, 169, 169);
+            height: 0px;
+            overflow: hidden;
+            
+        }
+
+        .aco input:checked~div{
+            height: 50px;
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="aco">
+            <input type="radio" name="accordion" id="cb1">
+            <label for="cb1">title1</label>
+            <div>content1</div>
+        </div>
+        <div class="aco">
+            <input type="radio" name="accordion" id="cb2">
+            <label for="cb2">title2</label>
+            <div>content2</div>
+        </div>
+        <div class="aco">
+            <input type="radio" name="accordion" id="cb3">
+            <label for="cb3">title3</label>
+            <div>content3</div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>
