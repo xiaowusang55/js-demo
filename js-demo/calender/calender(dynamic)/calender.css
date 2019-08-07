@@ -1,0 +1,149 @@
+/* 初始 */
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.centerbox {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.centerAdBox {
+    width: 120px;
+    margin: 0 auto;
+}
+/* 外层 container 样式 */
+.container {
+    width: 500px;
+    height: 400px;
+    border: 1px solid #57abff;
+    position: relative;
+}
+.content {
+    width: 370px; 
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* 头部区域设置 */
+.header {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #57abff;
+}
+.header>span {
+    border: 1px solid #999999;
+    display: inline-block;
+    width: 74px;
+    text-align: center;
+    padding: 4px;
+    font-size: 14px;
+}
+
+
+/* 星期标题 */
+.weekday {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    align-items: center;
+    border-bottom: 1px solid #999999;
+}
+
+
+/* 具体日期设置 */
+.ct-day {
+    height: 310px;
+}
+
+.ct-day>div {
+    display: flex;
+    flex-wrap: wrap;
+    height: 58px;
+    position: relative;
+}
+.ct-day>div:last-child {
+    border-bottom: none;
+}
+.row div {
+    width: 46px;
+    text-align: center;
+    font-size: 14px;
+    border: 2px solid transparent;
+    padding-top: 8px; 
+    /* background-color: rgb(211, 83, 83); */
+}
+.row div>span {
+    font-size: 18px;
+}
+.row div:hover {
+    border: 2px solid #ffbb00;
+    cursor: pointer;
+}
+.row div>p:last-child {
+    margin-top: 2px;
+    border-bottom: 1px solid #999999;
+    position: absolute;
+    width: 50px;
+}
+
+
+
+/* 侧边栏设置 */
+
+.aside {
+    width: 130px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #5eafff;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* 侧边栏上部分 */
+.aside-top {
+    height: 56%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-bottom: 2px solid #94c9ff;
+}
+.aside-top>p:nth-child(2) {
+    background-color: #ffbb00;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    line-height: 80px;
+    font-size: 54px;
+    font-weight: 900;
+    box-shadow: 1px 1px 10px #8a8686;
+}
+
+/* 侧边栏下部分 */
+.aside-bottom {
+    height: 35%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.aside-bottom .good,
+.aside-bottom .bad
+ {
+    width: 80px;
+}
+.aside-bottom .good>p:first-child,
+.aside-bottom .bad>p:first-child
+ {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
