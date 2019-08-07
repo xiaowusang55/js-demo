@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+            border: 1px solid;
+            width: 200px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            height: 200px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .btngroup {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .btngroup button {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="color-left">
+        <li> <input type="checkbox" name="colors" id="red"><label for="red">red</label> </li>
+        <li> <input type="checkbox" name="colors" id="teal"><label for="teal">teal</label> </li>
+        <li> <input type="checkbox" name="colors" id="purple"><label for="purple">purple</label> </li>
+        <li> <input type="checkbox" name="colors" id="tomato"><label for="tomato">tomato</label> </li>
+        <li> <input type="checkbox" name="colors" id="skyblue"><label for="skyblue">skyblue</label> </li>
+    </ul>
+    <div class="btngroup">
+        <button class="right">to right</button>
+        <button class="left">to left</button>
+    </div>
+    <ul class="color-right"></ul>
+
+    <script src="../lib/jquery-3.4.1.js"></script>
+    <script>
+
+        $(".right").click(() => {
+            $(".color-left input:checked").parent().appendTo(".color-right");
+            $(".color-right input:checked").prop("checked", false);
+        })
+
+        $(".left").click(() => {
+            $(".color-right input:checked").parent().appendTo(".color-left");
+            $(".color-left input:checked").prop("checked", false);
+        })
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
