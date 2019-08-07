@@ -50,23 +50,51 @@
         let listR = document.querySelector(".color-right");
         let btnRight = document.querySelector(".right");
         let btnLeft = document.querySelector(".left");
-        let checkBox = document.querySelectorAll("input")
-        let list = document.querySelectorAll(".color-left>li")
-        
+
+
         listL.onclick = (e) => {
+            let listl = document.querySelectorAll(".color-left input:checked");
+
             if (e.target.nodeName === "INPUT") {
-                
-               if (e.target.checked) {
-                   console.log(e.target);
-                   btnRight.onclick = () => {
-                    listR.appendChild(e.target.parentElement);
-                       
-                    }
-               }
+                // console.log(checkedItem);
+                btnRight.onclick = () => {
+
+                    listl.forEach((el) => {
+                        // console.log(el.parentElement);
+                        listR.appendChild(el.parentElement);
+                    })
+
+                    let listr = document.querySelectorAll(".color-right input:checked");
+                    listr.forEach((el) => {
+                        el.checked = false;
+                    })           
+                }
             }
         }
-    
-        
+
+        listR.onclick = (e) => {
+            let listr = document.querySelectorAll(".color-right input:checked");
+
+            if (e.target.nodeName === "INPUT") {
+                // console.log(checkedItem);
+                btnLeft.onclick = () => {
+
+                    listr.forEach((el) => {
+                        // console.log(el.parentElement);
+                        listL.appendChild(el.parentElement);
+                    })
+
+                    let listl = document.querySelectorAll(".color-left input:checked");
+                    listl.forEach((el) => {
+                        el.checked = false;
+                    })           
+                }
+            }
+        }
+
+
+
+
 
     </script>
 
