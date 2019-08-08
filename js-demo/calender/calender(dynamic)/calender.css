@@ -139,7 +139,7 @@ p {
 
 /* 侧边栏下部分 */
 .aside-bottom {
-    height: 35%;
+    height: 40%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -155,5 +155,4 @@ p {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 8px;
-    margin-top: 10px;
 }
