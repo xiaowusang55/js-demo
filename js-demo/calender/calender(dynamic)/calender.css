@@ -7,6 +7,7 @@ p {
 .centerbox {
     width: 350px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .centerAdBox {
@@ -16,7 +17,7 @@ p {
 /* 外层 container 样式 */
 .container {
     width: 500px;
-    height: 400px;
+    height: 390px;
     border: 1px solid #57abff;
     position: relative;
 }
@@ -65,25 +66,22 @@ p {
 .ct-day>div {
     display: flex;
     flex-wrap: wrap;
-    height: 58px;
+    /* height: 48px; */
     position: relative;
 }
-.ct-day>div:last-child {
-    border-bottom: none;
-}
+
 .row div {
-    width: 46px;
+    width: 44px;
     text-align: center;
     font-size: 14px;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
     padding-top: 8px; 
-    /* background-color: rgb(211, 83, 83); */
 }
 .row div>span {
     font-size: 18px;
 }
 .row div:hover {
-    border: 2px solid #ffbb00;
+    border: 3px solid #ffbb00;
     cursor: pointer;
 }
 .row div>p:last-child {
@@ -91,8 +89,19 @@ p {
     border-bottom: 1px solid #999999;
     position: absolute;
     width: 50px;
+    
 }
-
+/* 清除最后一行底边框 */
+.row div:nth-child(29)>p:last-child,
+.row div:nth-child(30)>p:last-child,
+.row div:nth-child(31)>p:last-child,
+.row div:nth-child(32)>p:last-child,
+.row div:nth-child(33)>p:last-child,
+.row div:nth-child(34)>p:last-child,
+.row div:nth-child(35)>p:last-child
+{
+    border-bottom: none;
+}
 
 
 /* 侧边栏设置 */
@@ -106,7 +115,7 @@ p {
     background-color: #5eafff;
     color: #ffffff;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 /* 侧边栏上部分 */
@@ -144,6 +153,7 @@ p {
 .aside-bottom .bad>p:first-child
  {
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 400;
     margin-bottom: 8px;
+    margin-top: 10px;
 }
