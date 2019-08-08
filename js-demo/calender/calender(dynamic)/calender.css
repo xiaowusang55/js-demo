@@ -142,11 +142,11 @@ p {
     height: 40%;
     display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 .aside-bottom .good,
 .aside-bottom .bad
  {
+    align-self: flex-start;
     width: 80px;
 }
 .aside-bottom .good>p:first-child,
@@ -155,4 +155,5 @@ p {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 8px;
+    margin-top: 4px;
 }
